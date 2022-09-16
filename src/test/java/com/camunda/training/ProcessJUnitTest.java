@@ -16,7 +16,7 @@ public class ProcessJUnitTest {
   
 //  @Test
   @Test
-  @Deployment(resources = "twitter-qa-test.bpmn")
+  @Deployment(resources = "twitter-qa-3b.bpmn")
   public void testHappyPath() {
 
     Map<String, Object> variables = new HashMap<String, Object>();
