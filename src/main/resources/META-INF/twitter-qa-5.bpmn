@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0ln8m4z" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.3.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.17.0">
-  <bpmn:process id="twitter-qa-3b" name="twitter QA" isExecutable="true" camunda:historyTimeToLive="1">
+  <bpmn:process id="twitter-qa-5" name="twitter QA" isExecutable="true" camunda:historyTimeToLive="1">
     <bpmn:startEvent id="StartEvent_1" name="Tweet received">
       <bpmn:outgoing>Flow_0zl0b1a</bpmn:outgoing>
     </bpmn:startEvent>
@@ -29,14 +29,14 @@
       <bpmn:incoming>Flow_13bkpuo</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="Flow_13bkpuo" sourceRef="Activity_1h1vqky" targetRef="Event_1szcqj6" />
-    <bpmn:manualTask id="Activity_1kw2qzb" name="Review Tweet">
-      <bpmn:incoming>Flow_0zl0b1a</bpmn:incoming>
-      <bpmn:outgoing>Flow_0f1xmkk</bpmn:outgoing>
-    </bpmn:manualTask>
     <bpmn:serviceTask id="twitter-publish" name="Publish on Twitter" camunda:class="com.camunda.training.CreateTweetDelegate">
       <bpmn:incoming>Flow_02vdcrc</bpmn:incoming>
       <bpmn:outgoing>Flow_0qc6q8i</bpmn:outgoing>
     </bpmn:serviceTask>
+    <bpmn:userTask id="Activity_1kw2qzb" name="Review Tweet" camunda:candidateGroups="management">
+      <bpmn:incoming>Flow_0zl0b1a</bpmn:incoming>
+      <bpmn:outgoing>Flow_0f1xmkk</bpmn:outgoing>
+    </bpmn:userTask>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="twitter-qa">
@@ -68,11 +68,11 @@
           <dc:Bounds x="675" y="315" width="71" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1wkbr6w_di" bpmnElement="Activity_1kw2qzb">
-        <dc:Bounds x="270" y="137" width="100" height="80" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_1ifa1bi_di" bpmnElement="twitter-publish">
         <dc:Bounds x="530" y="137" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0arjwpl_di" bpmnElement="Activity_1kw2qzb">
+        <dc:Bounds x="270" y="137" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_0zl0b1a_di" bpmnElement="Flow_0zl0b1a">
         <di:waypoint x="215" y="177" />
