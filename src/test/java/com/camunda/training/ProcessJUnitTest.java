@@ -19,7 +19,7 @@ public class ProcessJUnitTest {
   
 //  @Test
   @Test
-  @Deployment(resources = "twitter-qa-5.bpmn")
+  @Deployment(resources = "twitter-qa-6.bpmn")
   public void testHappyPath() {
 
     Map<String, Object> startVariables = new HashMap<String, Object>();
